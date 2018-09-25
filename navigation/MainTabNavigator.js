@@ -19,42 +19,72 @@ HomeStack.navigationOptions = {
       name={
         Platform.OS === 'ios'
           ? `ios-information-circle${focused ? '' : '-outline'}`
-          : 'md-information-circle'
+          : 'md-home'
       }
     />
   ),
 };
 
-const LinksStack = createStackNavigator({
+const TestStack = createStackNavigator({
   Links: LinksScreen,
 });
 
-LinksStack.navigationOptions = {
-  tabBarLabel: 'Links',
+TestStack.navigationOptions = {
+  tabBarLabel: 'Test',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
-      name={Platform.OS === 'ios' ? `ios-link${focused ? '' : '-outline'}` : 'md-link'}
+      name={Platform.OS === 'ios' ? `ios-link${focused ? '' : '-outline'}` : 'md-desktop'}
     />
   ),
 };
 
-const SettingsStack = createStackNavigator({
+const DiscussionStack = createStackNavigator({
   Settings: SettingsScreen,
 });
 
-SettingsStack.navigationOptions = {
-  tabBarLabel: 'Settings',
+DiscussionStack.navigationOptions = {
+  tabBarLabel: 'Discussion',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
-      name={Platform.OS === 'ios' ? `ios-options${focused ? '' : '-outline'}` : 'md-options'}
+      name={Platform.OS === 'ios' ? `ios-options${focused ? '' : '-outline'}` : 'md-help-circle'}
+    />
+  ),
+};
+
+const NotificationStack = createStackNavigator({
+  Settings: SettingsScreen,
+});
+
+NotificationStack.navigationOptions = {
+  tabBarLabel: 'Notification',
+  tabBarIcon: ({ focused }) => (
+    <TabBarIcon
+      focused={focused}
+      name={Platform.OS === 'ios' ? `ios-options${focused ? '' : '-outline'}` : 'md-notifications-outline'}
+    />
+  ),
+};
+
+const ProfileStack = createStackNavigator({
+  Settings: SettingsScreen,
+});
+
+ProfileStack.navigationOptions = {
+  tabBarLabel: 'Profile',
+  tabBarIcon: ({ focused }) => (
+    <TabBarIcon
+      focused={focused}
+      name={Platform.OS === 'ios' ? `ios-options${focused ? '' : '-outline'}` : 'md-heart-outline'}
     />
   ),
 };
 
 export default createBottomTabNavigator({
   HomeStack,
-  LinksStack,
-  SettingsStack,
+  TestStack,
+  DiscussionStack,
+  NotificationStack,
+  ProfileStack,
 });
