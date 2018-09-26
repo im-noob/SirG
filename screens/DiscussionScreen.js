@@ -15,7 +15,7 @@ export default class DiscussionScreen extends React.Component {
 
   render() {
     return(
-      <View style ={styles.container}>
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
         <Text>DiscussionScreen</Text>
       </View>
     );

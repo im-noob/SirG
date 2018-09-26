@@ -1,5 +1,5 @@
 import React from 'react';
-import { ScrollView, StyleSheet,Text } from 'react-native';
+import { View, StyleSheet,Text } from 'react-native';
 
 export default class ProfileScreen extends React.Component {
   static navigationOptions = {
@@ -8,9 +8,9 @@ export default class ProfileScreen extends React.Component {
 
   render() {
     return (
-      <ScrollView style={styles.container}>
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
         <Text>Profile Screen</Text>
-      </ScrollView>
+      </View>
     );
   }
 }

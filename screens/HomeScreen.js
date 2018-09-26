@@ -16,13 +16,7 @@ export default class HomeScreen extends React.Component {
 
   render() {
     return (
-      <View style={styles.container}>
-        <Text>Home HomeScreen</Text>
-        <Text>Home HomeScreen</Text>
-        <Text>Home HomeScreen</Text>
-        <Text>Home HomeScreen</Text>
-        <Text>Home HomeScreen</Text>
-        <Text>Home HomeScreen</Text>
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
         <Text>Home HomeScreen</Text>
       </View>
     );
