@@ -1,0 +1,92 @@
+import React from 'react';
+import {
+  View,
+  Text,
+  Button,
+} from 'react-native';
+import {
+  createDrawerNavigator,
+  createStackNavigator,
+  createBottomTabNavigator,
+} from 'react-navigation';
+import YouTube from 'react-native-youtube';
+
+
+/* SCREENS */
+/* ============================================================= */
+class HomeScreen extends React.Component {
+  handleGoToLesson = (lessonNo) => {
+    this.props.navigation.navigate('Lesson', { lessonNo });
+  }
+  render() {
+    return (
+      <View>
+        <Text>HomeScreen</Text>
+        <Button onPress={() => this.handleGoToLesson(1)}
+          title='Go to Lesson 1'
+        />
+      </View>
+    )
+  }
+};
+
+const AboutScreen = (props) => (
+  <Text>AboutScreen</Text>
+);
+
+class Lesson extends React.Component {
+  render() {
+    return (
+      <View>
+        <Text>Lesson</Text>
+        <YouTube
+          apiKey='abc1234'
+          videoId="KVZ-P-ZI6W4"
+          play={false}
+          fullscreen={false}
+          onReady={e => this.setState({ isReady: true })}
+          onChangeState={e => this.setState({ status: e.state })}
+          onChangeQuality={e => this.setState({ quality: e.quality })}
+          onError={e => this.setState({ error: e.error })}
+          style={{ alignSelf: 'stretch', height: 300 }}
+        />
+      </View>
+    )
+  }
+};
+
+const Exercise = (props) => (
+  <Text>Exercise</Text>
+);
+
+export default class App extends React.Component {
+  render() {
+    return <RootStackNavigator />;
+  }
+}
+
+
+/* NAVIGATORS */
+/* ============================================================= */
+const LessonTabNavigator = createBottomTabNavigator({
+  Lesson: Lesson,
+  Exercise: Exercise,
+}, {
+  initialRouteName: 'Lesson',
+});
+
+const AppDrawerNavigator = createDrawerNavigator({
+  Home: HomeScreen,
+  About: AboutScreen,
+}, {
+  initialRouteName: 'Home',
+  drawerWidth: 250,
+});
+
+const RootStackNavigator = createStackNavigator({
+  Home: AppDrawerNavigator,
+  Lesson: LessonTabNavigator,
+}, {
+  initialRouteName: 'Home',
+  headerMode: 'none',
+});

@@ -20,10 +20,7 @@ HomeStack.navigationOptions = {
     <TabBarIcon
       focused={focused}
       name={
-        Platform.OS === 'ios'
-          ? `ios-information-circle${focused ? '' : '-outline'}`
-          : 'home-outline'
-      }
+        focused? 'home-outline': 'home-outline'   }
     />
   ),
 };
@@ -37,7 +34,7 @@ TestStack.navigationOptions = {
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
-      name={Platform.OS === 'ios' ? `ios-link${focused ? '' : '-outline'}` : 'pencil-box-outline'}
+      name={focused? 'pencil-box-outline' : 'pencil-box-outline'}
     />
   ),
 };
@@ -51,7 +48,7 @@ DiscussionStack.navigationOptions = {
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
-      name={Platform.OS === 'ios' ? `ios-options${focused ? '' : '-outline'}` : 'plus-circle-outline'}
+      name={focused?'plus-circle-outline': 'plus-circle-outline'}
     />
   ),
 };
@@ -65,7 +62,7 @@ NotificationStack.navigationOptions = {
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
-      name={Platform.OS === 'ios' ? `ios-options${focused ? '' : '-outline'}` : 'bell-outline'}
+      name={focused ? 'bell-outline': 'bell-outline'}
     />
   ),
 };
@@ -79,15 +76,24 @@ ProfileStack.navigationOptions = {
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
-      name={Platform.OS === 'ios' ? `ios-options${focused ? '' : '-outline'}` : 'heart-outline'}
+      name={focused? 'heart-outline' : 'heart-outline'}
     />
   ),
 };
 
-export default createBottomTabNavigator({
-  HomeStack,
-  TestStack,
-  DiscussionStack,
-  NotificationStack,
-  ProfileStack,
-});
+export default createBottomTabNavigator(
+  {
+    HomeStack,
+    TestStack,
+    DiscussionStack,
+    NotificationStack,
+    ProfileStack,
+  },
+  {
+    tabBarOptions:{
+      showLabel: false,
+    },
+    
+  }
+  
+);

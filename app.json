@@ -5,8 +5,11 @@
     "slug": "Sir-G",
     "privacy": "public",
     "sdkVersion": "30.0.0",
-    "platforms": ["ios", "android"],
-    "version": "1.0.0",
+    "platforms": [
+      "ios",
+      "android"
+    ],
+    "version": "1.0.1",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "splash": {
@@ -21,7 +24,12 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
-    }
+      "supportsTablet": true,
+      "bundleIdentifier": "com.biharilegends.sirg"
+    },
+    "android": {
+      "package": "com.biharilegends.sirg"
+    },
+    "githubUrl": "https://github.com/im-noob/SirG"
   }
 }

@@ -38,6 +38,9 @@ export default createMaterialTopTabNavigator(
       style: {
         backgroundColor: '#0f9d58',
       },
+      indicatorStyle :{
+        backgroundColor:'white',
+      }
     },
   }
 );
